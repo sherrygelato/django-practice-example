@@ -24,6 +24,8 @@ def create(request):
 
     return redirect('/articles/')
 
+    
+
 def detail(request, pk):
     article = Article.objects.get(pk=pk)
 
