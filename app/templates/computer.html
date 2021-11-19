@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block css %}
+<style>
+    h1 {
+        color: blue;
+    }
+</style>
+{% endblock %}
+
+{% block body %}
+    <h1>프로그램 언어 추천</h1>
+    <h2>랜덤 추천결과는 {{ languaage }}</h2>
+    <hr>
+    <p>언어의 종류는 {{ languages }}가 있습니다.</p>
+    <p>무엇이 있는지 나열해 드리겠습니다.</p>
+    <ul>
+        {% for languate in languages %}
+        <li>{{ languate }}</li>
+        {% endfor %}
+    </ul>
+{% endblock %}

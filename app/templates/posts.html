@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block css %}
+<style>
+    h1 {
+        color: blue;
+    }
+</style>
+{% endblock %}
+
+{% block body %}
+    {# 주석 다는 법 #}
+    <h1>{{ id }}번째 글</h1>
+    
+    <p>{{ content }}</p>
+    <p>{{ content|length }}</p>
+    <p>{{ content|truncatechars:10  }}</p>
+    <hr>
+    <h2>댓글</h2>
+    <ul>
+        {% for reply in replies %}
+            <li> 댓글 {{ forloop.counter }} : {{ reply }} </li>
+            {% empty %}
+            <p>댓글을 작성해주세요</p>
+        {% endfor %}
+    </ul>
+    {% if user == 'sherry' %}
+        <p>수정, 삭제</p>
+    {% else %}
+        <p>관리자 권한이 없습니다.</p>
+    {% endif %}
+{% endblock %}

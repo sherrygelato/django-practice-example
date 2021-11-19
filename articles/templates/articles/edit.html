@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2> 게시물 수정하기 </h2>
+<form action="/articles/{{ article.pk }}/update/">
+    title : <input type="text" name="title" value="{{ article.title }}">
+    <br>
+    content: <textarea name="content" cols="30" rows="15"></textarea>
+    <br>
+    <input type="submit" value="Send">
+</form>
+{% endblock %}
