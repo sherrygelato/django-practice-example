@@ -5,7 +5,7 @@
 <form action="/articles/{{ article.pk }}/update/">
     title : <input type="text" name="title" value="{{ article.title }}">
     <br>
-    content: <textarea name="content" cols="30" rows="15"></textarea>
+    content: <textarea name="content" cols="30" rows="15">{{ article.content }}</textarea>
     <br>
     <input type="submit" value="Send">
 </form>

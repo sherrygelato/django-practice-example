@@ -1,6 +1,6 @@
 from django.shortcuts import redirect, render
 
-import articles
+from .models import Article
 
 # Create your views here.
 def index(request):
@@ -47,3 +47,16 @@ def edit(request, pk):
     }
 
     return render(request, 'articles/edit.html', context)
+
+def update(request, pk):
+    article = Article.objects.get(pk=pk)
+
+    title = request.GET.get('title')
+    content = request.GET.get('content')
+
+    article.title = title
+    article.content = content
+
+    article.save()
+
+    return redirect(f'/articles/{article.pk}/')
